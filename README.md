@@ -21,6 +21,9 @@ Here, we will be solving a classic sudoku game, that consists of 9x9 number grid
 
 ### Backtracking
 
+
+Firstly we are going to repsesent sudoku as a list of lists. Each sublist represents a horizontal line of our sudoku puzzle. We replaced missing value that needs to be filled in by 0.
+
 ```python
 sudoku = [
     [5,7,0,0,4,6,0,3,0],
@@ -35,6 +38,7 @@ sudoku = [
 ]
 ```
 
+Here we define print_sudoku() functions that provides us with nicer grid when we print sudoku in python. Another option for this is to import numpy as np and just simply use print(np.matrix(sudoku)). 
 
 ```python
 def print_sudoku():
@@ -70,7 +74,7 @@ print_sudoku()
 0 0 0  | 0 3 4  | 1 6 0
 ```
 
-                     
+Here, we define possible() function....                     
 
 ```python
 def possible(row, col, n):
@@ -97,6 +101,7 @@ def possible(row, col, n):
             
     return True
 ``` 
+
 
 ```python
 def solve():
