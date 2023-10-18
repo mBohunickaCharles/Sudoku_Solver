@@ -53,6 +53,7 @@ sudoku = [
     [0,0,0,0,3,4,1,6,0]
 ]
 ```
+<br><br/>
 
 Here, we define a fancy ```print_sudoku()``` function that provides us with nicer grid when we print sudoku in python. 
 Another option to achieve similar print option is to ```import numpy as np``` and just simply use ```print(np.matrix(sudoku))```. 
@@ -90,8 +91,9 @@ print_sudoku()
 0 0 7  | 8 1 0  | 9 2 0
 0 0 0  | 0 3 4  | 1 6 0
 ```
+<br><br/>
 
-Backtracking algorithms usually follow a recursive structure, where each recursive call represents a choice or a step in the solution. The algorithm maintains some state variables that keep track of the current partial solution, the remaining options, and the constraints. The algorithm also needs a base case, where it checks if the solution is complete and valid, and a recursive case, where it tries different options and recurses on each of them.                 
+To initiate recusrion within our backtracking algorithm, we define constrainst. Those are our puzzle rules that define if the choise of digit is possible. We are basically checking for any duplicated values of 1 to 9 digits in row, column and 3x3 subgrid:
 
 ```python
 def possible(row, col, n):
@@ -118,6 +120,13 @@ def possible(row, col, n):
             
     return True
 ```
+
+
+
+
+
+
+
 
 Backtracking algorithms usually follow a recursive structure, where each recursive call represents a choice or a step in the solution. The algorithm maintains some state variables that keep track of the current partial solution, the remaining options, and the constraints. The algorithm also needs a base case, where it checks if the solution is complete and valid, and a recursive case, where it tries different options and recurses on each of them.  
 
