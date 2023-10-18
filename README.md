@@ -36,7 +36,7 @@ def backtrack(x):
  ```   
 <br><br/>
 
-### Solving Sudoku puzzle by Backtracking
+### Solving Sudoku puzzle by Backtracking <br><br/>
 
 To solve our sudoku from above we are going to use backtracking algorithm and python programming language. Before we jump to the solution we need to represent sudoku in python. We will asign a list of nine sublists to a sudoku variable. Each sublist represents a horizontal line of our sudoku puzzle. We replaced missing value that needs to be filled by 0.
 
@@ -121,14 +121,15 @@ def possible(row, col, n):
     return True
 ```
 
+Checking entries in rows and columns is straidforward. However when it comes to checking boxes we assign to each subgrid member the same staring value, depending on it's position in the 9x9 grid. To achieve this we use a floor division and multiply our otput by 3. New values assigned to rows and columns are displayed on the image below:
+<p align="center">
+<img width="350em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/sudoku_square.drawio.png" align = "center"/>
+</p>
+<br><br/>
 
+Function ```solve()``` represents our backtracking algorithm for solving sudoku. Here we follow a recusive structure, where each recursive call represents a step in the solution. The algorithm starts searching for possible digits from top left to bottom right, it maintains state variables that keep track of the current partial solution, the remaining options and the constraints ```possible()```. If it comes to clush with constrainst and no options/digits can be filled in algorithm perfoms recusion - goes step back and replaces digit to another possible option.
 
-
-
-
-
-
-Backtracking algorithms usually follow a recursive structure, where each recursive call represents a choice or a step in the solution. The algorithm maintains some state variables that keep track of the current partial solution, the remaining options, and the constraints. The algorithm also needs a base case, where it checks if the solution is complete and valid, and a recursive case, where it tries different options and recurses on each of them.  
+It also contains a base case, where it checks if the solution is complete and valid and prints out the solution if any.
 
 ```python
 def solve():
@@ -152,7 +153,7 @@ if solve():
 else:
     print('No solution found!')
 ```                        
-
+<br><br/>
 
 ```python
 Sudoku solved:
