@@ -1,29 +1,30 @@
 # Solving Sudoku by using Backtracking  <br><br/>
 
-Sudoku, originally called Number place is a logic based, combinatorical number game.
+Sudoku, a puzzle game formerly called Number Place, challenges players with logic and number-based combinations.
 
-Below is an example of classic sudoku game, we will be solving by using backtracking algorithm and python programming:
+Below is an example of a Sudoku puzzle, which we will solve using the backtracking algorithm in Python.
 
 <p align="center">
 <img width="250em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/sudoku_1.drawio.png" align = "center"/>
 </p>
 <br><br/>
 
-Here, we will be solving a classic sudoku game, that consists of 9x9 number grids that contains nine smaller 3x3 sections called subgrids. Player has to fill in empty squares with 1 to 9 digits, so there are no duplicated values in any of the horizontal lines, vertical lines and smaller 3x3 subgrids.
+We’ll be working on a classic 9x9 Sudoku puzzle, which is made up of nine 3x3 subgrids. The objective is to fill each empty cell with a number from 1 to 9, without repeating any number in the same row, column, or subgrid.
 
 <p align="center">
 <img width="250em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/horizontal.png" align = "center"/>
 <img width="250em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/vertical.png" align = "center"/>
 <img width="250em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/subgrid.png" align = "center"/>  
 </p>
+To learn more about the history of Sudoku, visit this [!website](https://www.sudokuconquest.com/blog/a-brief-history-of-sudoku).
 <br><br/>
 
 
 ## Backtracking
 
-Backtracking is an algorithm that can be applied to many types of problems, such as puzzles, games, optimization or combinatorics. The basic idea is to incrementally build a solution by making a series of choices, each of which can be undone if it turns out to be wrong or undesirable. 
+Backtracking is a versatile algorithm used to solve problems involving puzzles, games, optimization, and combinatorics. It works by building solutions step by step, allowing previous choices to be reversed if they lead to an incorrect or suboptimal outcome.
 
-Backtracking can be seen as a form of depth-first search, where the algorithm explores one branch of the solution space at a time, and backtracks to the previous choice point when it reaches a dead end or a better alternative.
+Backtracking can be seen as a type of depth-first search that explores one branch of the solution space at a time, retreating to a previous decision point whenever it hits a dead end or finds a better alternative.
 
 Pseudocode of backtracking algorithm:
 ```python
