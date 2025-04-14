@@ -16,7 +16,8 @@ We’ll be working on a classic 9x9 Sudoku puzzle, which is made up of nine 3x3 
 <img width="250em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/vertical.png" align = "center"/>
 <img width="250em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/subgrid.png" align = "center"/>  
 </p>
-To learn more about the history of Sudoku, visit this [!website](https://www.sudokuconquest.com/blog/a-brief-history-of-sudoku).
+
+To learn more about the history of Sudoku, visit this [website](https://www.sudokuconquest.com/blog/a-brief-history-of-sudoku).
 <br><br/>
 
 
@@ -24,7 +25,7 @@ To learn more about the history of Sudoku, visit this [!website](https://www.sud
 
 Backtracking is a versatile algorithm used to solve problems involving puzzles, games, optimization, and combinatorics. It works by building solutions step by step, allowing previous choices to be reversed if they lead to an incorrect or suboptimal outcome.
 
-Backtracking can be seen as a type of depth-first search that explores one branch of the solution space at a time, retreating to a previous decision point whenever it hits a dead end or finds a better alternative.
+It can be seen as a type of depth-first search that explores one branch of the solution space at a time, retreating to a previous decision point whenever it hits a dead end or finds a better alternative.
 
 Pseudocode of backtracking algorithm:
 ```python
@@ -39,7 +40,7 @@ def backtrack(x):
 
 ### Solving Sudoku puzzle by Backtracking <br><br/>
 
-To solve our sudoku from above we are going to use backtracking algorithm and python programming language. Before we jump to the solution we need to represent sudoku in python. We will asign a list of nine sublists to a sudoku variable. Each sublist represents a horizontal line of our sudoku puzzle. We replaced missing value that needs to be filled by 0.
+To solve the Sudoku puzzle above, we’ll use the backtracking algorithm along with the Python programming language. Before diving into the solution, we need to represent the Sudoku grid in Python. We’ll assign a list of nine sublists to a variable called sudoku, where each sublist represents a horizontal row of the puzzle. Missing values that need to be filled are represented by 0.
 
 ```python
 sudoku = [
@@ -56,8 +57,8 @@ sudoku = [
 ```
 <br><br/>
 
-Here, we define a fancy ```print_sudoku()``` function that provides us with nicer grid when we print sudoku in python. 
-Another option to achieve similar print option is to ```import numpy as np``` and just simply use ```print(np.matrix(sudoku))```. 
+Here, we define a fancy ```print_sudoku()``` function that provides us with a nicer grid when we print sudoku in Python. 
+Another option to achieve nicer print is to use ```import numpy as np``` or ```print(np.matrix(sudoku))```. 
 
 ```python
 def print_sudoku():
@@ -94,7 +95,9 @@ print_sudoku()
 ```
 <br><br/>
 
-To initiate recusrion within our backtracking algorithm, we define constrainst. Those are our puzzle rules that define if the choise of digit is possible. We are basically checking for any duplicated values of 1 to 9 digits in row, column and 3x3 subgrid:
+Before we start the recursive backtracking process, we need to set up the rules, or constraints, of the puzzle. These rules help us decide if placing a certain number is allowed. We check if the number already exists in the same row, column, or 3x3 box—if it does, the move isn’t valid.
+
+
 
 ```python
 def possible(row, col, n):
@@ -122,13 +125,15 @@ def possible(row, col, n):
     return True
 ```
 
-Checking entries in rows and columns is straidforward. However when it comes to checking boxes we assign to each subgrid member the same staring value, depending on it's position in the 9x9 grid. To achieve this we use a floor division and multiply our otput by 3. New values assigned to rows and columns are displayed on the image below:
+Checking for duplicate entries in rows and columns is straightforward. However, when it comes to 3x3 subgrids, we assign the same starting index to each cell within a subgrid based on its position in the 9x9 grid. To do this, we use floor division and multiply the result by 3. The resulting values for rows and columns are shown in the image below.
+
 <p align="center">
 <img width="350em" src="https://github.com/mBohunickaCharles/sudoku_solver/blob/main/image/sudoku_square.drawio.png" align = "center"/>
 </p>
 <br><br/>
 
-Function ```solve()``` represents our backtracking algorithm for solving sudoku. Here we follow a recusive structure, where each recursive call represents a step in the solution. The algorithm starts searching for possible digits from top left to bottom right, it maintains state variables that keep track of the current partial solution, the remaining options and the constraints ```possible()```. If it comes to clush with constrainst and no options/digits can be filled in algorithm perfoms recusion - goes step back and replaces digit to another possible option.
+The function ```solve()``` implements our backtracking algorithm to solve the Sudoku puzzle. It follows a recursive structure, where each recursive call represents a step in the solution process. The algorithm starts from the top-left corner and moves toward the bottom-right, maintaining state variables to track the current partial solution, remaining options, and constraints through the possible() function. If the algorithm encounters a conflict with the constraints and cannot fill in any digits, it backtracks by stepping back and trying a different option.
+
 
 It also contains a base case, where it checks if the solution is complete and valid and prints out the solution if any.
 
